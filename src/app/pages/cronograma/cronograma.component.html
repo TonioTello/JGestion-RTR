@@ -1,0 +1,68 @@
+<table mat-table [dataSource]="servicios" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="posicion">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let servicio of servicios"> {{servicios.indexOf(servicio) + 1}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="numeroOrden">
+    <th mat-header-cell *matHeaderCellDef> Número Orden  </th>
+    <td mat-cell *matCellDef="let servicio of servicios"> {{servicio.numeroOrden}} </td>
+  </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="cliente">
+      <th mat-header-cell *matHeaderCellDef> Cliente  </th>
+      <td mat-cell *matCellDef="let servicio of servicios"> {{servicio.cliente}} </td>
+    </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="equipo">
+    <th mat-header-cell *matHeaderCellDef> Equipo </th>
+    <td mat-cell *matCellDef="let servicio of servicios"> {{servicio.equipo}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="quienNotifica">
+    <th mat-header-cell *matHeaderCellDef> Quien Notifica </th>
+    <td mat-cell *matCellDef="let servicio of servicios"> {{servicio.quienNotifica}}</td>
+  </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="telefono">
+      <th mat-header-cell *matHeaderCellDef> Telefono </th>
+      <td mat-cell *matCellDef="let servicio of servicios"> {{servicio.telefono}}</td>
+    </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="quienEjecuta">
+    <th mat-header-cell *matHeaderCellDef> Quien Ejecuta </th>
+    <td mat-cell *matCellDef="let servicio of servicios"> {{servicio.quienEjecuta}}</td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="estado">
+    <th mat-header-cell *matHeaderCellDef> Estado </th>
+    <td mat-cell *matCellDef="let servicio of servicios"> {{servicio.estado}}</td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="reporte">
+    <th mat-header-cell *matHeaderCellDef> Reporte </th>
+    <td mat-cell *matCellDef="let servicio of servicios"> {{"Editar"}}</td>
+  </ng-container>
+
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<button mat-raised-button (click)="openDialog()">Pick one</button>
+
+

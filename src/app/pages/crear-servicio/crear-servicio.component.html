@@ -1,0 +1,121 @@
+<h2 style="text-align: center;">Creación de Servicio</h2>
+<form class="row g-3">
+<br>
+<!-- <h4>Seleccione Tipo de Servicio</h4>
+<div class="col-12">  --imprime una nueva linea¡? --
+</div>
+<div class="col-12">
+  <label for="inputPassword4" class="form-label">Tipo de servicio</label>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-select [(value)]="selected">
+      <mat-option value="option1">Revisión o diagnóstico</mat-option>
+      <mat-option value="option2">Mantenimiento preventivo</mat-option>
+      <mat-option value="option3">Mantenimiento correctivo</mat-option>
+      <mat-option value="option4">Capacitación</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br> <br>
+</div> -->
+
+  <h4>Información del Cliente</h4>
+  <div class="col-12">  <!--imprime una nueva linea¡? -->
+  </div>
+  <div class="col-md-6">
+    <label for="nit" class="form-label">Identificación o Nit</label>
+    <input type="email" #nit="ngModel" name="nit" [(ngModel)]="cliente_searched.nit" class="form-control" id="nit" placeholder="Identificación o Nit">
+    <button type="submit" (click)=onConsultarCliente() class="btn btn-primary"><i class="fa fa-search"></i>Consultar</button>
+  </div>
+
+  <div class="col-md-6">
+    <label class="form-label">Nombre Empresa</label>
+    <input type="email" #empresa="ngModel" name="empresa" [(ngModel)]="cliente_found.empresa" class="form-control" id="empresa" placeholder="Empresa" disabled>
+    <label class="form-label">Ciudad</label>
+    <input type="email" #ciudad="ngModel" name="ciudad" [(ngModel)]="cliente_found.ciudad" class="form-control" id="ciudadCliente" placeholder="Ciudad" disabled>
+    <label class="form-label">Dirección</label>
+    <input type="email" #direccion="ngModel" name="direccion" [(ngModel)]="cliente_found.direccion" class="form-control" id="direcciónCliente" placeholder="Dirección" disabled>
+    <label class="form-label">Teléfono representante</label>
+    <input type="email" #telefono1="ngModel" name="telefono1" [(ngModel)]="cliente_found.telefono1" class="form-control" id="teléfonoRepresentante" placeholder="Teléfono" disabled>
+    <br><br>
+  </div>
+
+
+  <h4 *ngIf="clienteExiste">Información del Equipo</h4>
+  <div *ngIf="clienteExiste" class="col-12">  <!--imprime una nueva linea¡? -->
+  </div>
+  <div *ngIf="clienteExiste" class="col-md-6">
+    <label for="serial" class="form-label">Número de serie</label>
+    <input type="email" #serial="ngModel" name="serial" [(ngModel)]="equipo_searched.serial" class="form-control" id="serial" placeholder="Identificación del Equipo">
+    <button type="submit" (click)=onConsultarEquipo() class="btn btn-primary"><i class="fa fa-search"></i>Consultar</button>
+  </div>
+  <div *ngIf="clienteExiste" class="col-md-6">
+    <label for="nombreEquipo" class="form-label">Nombre del equipo</label>
+    <input type="email" #nombre="ngModel" name="nombre" [(ngModel)]="equipo_found.nombre" class="form-control" id="nombreEquipo" placeholder="Nombre del equipo" disabled>
+    <label for="marca" class="form-label">Marca</label>
+    <input type="email" #marca="ngModel" name="marca" [(ngModel)]="equipo_found.marca" class="form-control" id="marca" placeholder="Marca" disabled>
+    <label for="modelo" class="form-label">Modelo</label>
+    <input type="email" #modelo="ngModel" name="modelo" [(ngModel)]="equipo_found.modelo" class="form-control" id="modelo" placeholder="Modelo" disabled>
+    <br><br>
+  </div>
+
+  <h4 *ngIf="equipoExiste" >Quien notifica</h4>
+  <div *ngIf="clienteExiste" class="col-12">  <!--imprime una nueva linea¡? -->
+  </div>
+  <div *ngIf="equipoExiste" class="col-md-6">
+    <label for="quienNotifica" class="form-label">Nombre completo</label>
+    <input type="email" #quienNotifica="ngModel" name="quienNotifica" [(ngModel)]="servicio.quienNotifica" class="form-control" id="quienNotifica" placeholder="Nombre completo">
+  </div>
+  <div *ngIf="equipoExiste" class="col-md-6">
+    <label for="cargo" class="form-label">Cargo</label>
+    <input type="email" #cargo="ngModel" name="cargo" [(ngModel)]="servicio.cargo" class="form-control" id="cargo" placeholder="Cargo">
+  </div>
+  <div *ngIf="equipoExiste" class="col-md-6">
+    <label for="telefono" class="form-label">Teléfono</label>
+    <input type="email" #telefono="ngModel" name="telefono" [(ngModel)]="servicio.telefono" class="form-control" id="telefono" placeholder="Teléfono">
+  </div>
+  <div *ngIf="equipoExiste" class="col-md-6">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" #email="ngModel" name="email" [(ngModel)]="servicio.email" class="form-control" id="email" placeholder="Email">
+  </div>
+  <h4 *ngIf="equipoExiste">Información del servicio</h4>
+  <div class="col-12">  <!--imprime una nueva linea¡? -->
+  </div>
+  <div *ngIf="equipoExiste" class="col-md-4">
+    <label for="fechaServicio" class="form-label">Fecha de servicio</label>
+    <br>
+    <mat-form-field appearance="fill">
+    <!-- #docregion toggle -->
+      <input #fechaServicio="ngModel" name="fechaServicio" [(ngModel)]="servicio.fechaServicio" matInput [matDatepicker]="picker" placeholder="Fecha de servicio">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    <!-- #enddocregion toggle -->
+    </mat-form-field>
+  </div>
+  <div *ngIf="equipoExiste" class="col-md-4">
+    <label for="tipoServicio" class="form-label">Tipo de servicio</label>
+    <br>
+    <mat-form-field appearance="fill">
+      <!-- <mat-label>Tipo de servicio</mat-label> -->
+      <mat-select #tipoServicio="ngModel" name="tipoServicio" [(ngModel)]="servicio.tipoServicio" [(value)]="selected">
+        <mat-option value="option1">Revisión o diagnóstico</mat-option>
+        <mat-option value="option2">Mantenimiento preventivo</mat-option>
+        <mat-option value="option3">Mantenimiento correctivo</mat-option>
+        <mat-option value="option4">Capacitación</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div *ngIf="equipoExiste" class="col-md-4"> <!--imprime 3 bloque vacio? -->
+    <label for="inputEmail4" class="form-label">Numero de Orden</label>
+    <input type="email" #numeroOrden="ngModel" name="numeroOrden" [(ngModel)]="servicio.numeroOrden" class="form-control" id="numeroOrden" placeholder="Numero de Orden">
+  </div>
+
+  <div *ngIf="equipoExiste" class="col-md-12"> <!--imprime 3 bloque vacio? -->
+    <label for="inputEmail4" class="form-label">Observaciones</label>
+    <input type="email" #observaciones="ngModel" name="observaciones" [(ngModel)]="servicio.observaciones" class="form-control" id="observaciones" placeholder="Observaciones">
+  </div>
+  <br>
+  <div *ngIf="equipoExiste" class="col-12">
+    <button type="submit" (click)=onGuardar() class="btn btn-primary">Guardar</button>
+    <button style="float: right;" type="submit" (click)=onCancelar() class="btn btn-primary">Cancelar</button>
+  </div>
+</form>

@@ -1,0 +1,64 @@
+<table mat-table [dataSource]="ventas" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="posicion">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let venta of ventas"> {{ventas.indexOf(venta) + 1}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="factura">
+    <th mat-header-cell *matHeaderCellDef> N° Factura  </th>
+    <td mat-cell *matCellDef="let venta of ventas"> {{venta.numeroFactura}} </td>
+  </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="cliente">
+      <th mat-header-cell *matHeaderCellDef> Cliente  </th>
+      <td mat-cell *matCellDef="let venta of ventas"> {{venta.nombreCliente}} </td>
+    </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="nit">
+    <th mat-header-cell *matHeaderCellDef> Nit </th>
+    <td mat-cell *matCellDef="let venta of ventas"> {{venta.nitCliente}} </td>
+  </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="equipo">
+        <th mat-header-cell *matHeaderCellDef> Nom. Equipo </th>
+        <td mat-cell *matCellDef="let venta of ventas"> {{venta.nombreEquipo}}</td>
+      </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="serial">
+    <th mat-header-cell *matHeaderCellDef> N° Serial </th>
+    <td mat-cell *matCellDef="let venta of ventas"> {{venta.numeroSerie}}</td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="fechaVenta">
+    <th mat-header-cell *matHeaderCellDef> Fecha Venta </th>
+    <td mat-cell *matCellDef="let venta of ventas"> {{venta.fechaVenta}}</td>
+  </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="fechaInstalacion">
+      <th mat-header-cell *matHeaderCellDef> Fecha Instalación </th>
+      <td mat-cell *matCellDef="let venta of ventas"> {{venta.fechaInstalacion}}</td>
+    </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="responsableInst">
+    <th mat-header-cell *matHeaderCellDef> Responsable Inst. </th>
+    <td mat-cell *matCellDef="let venta of ventas"> {{venta.responsableInstalacion}}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+

@@ -1,0 +1,137 @@
+<mat-drawer-container class="example-container">
+  <mat-drawer class="side-container" mode="side" opened>
+      <h2>Menu</h2>
+      <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category">
+      <ul id="myMenu">
+        <li>
+            <mat-expansion-panel hideToggle>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <a (click)="onHome()"><p><i class="fa fa-fw fa-home"></i> Home</p></a>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+            </mat-expansion-panel>
+        </li>
+
+        <li>
+          <mat-expansion-panel >
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <p><i class="fa fa-fw fa-wrench"></i> Servicios</p>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p><a (click)="onCrearServicio()"><i class="fa fa-fw fa-pencil-square-o"></i> Crear servicio</a></p>
+            <p><a (click)="onCronograma()"><i class="fa fa-fw fa-calendar"></i> Cronograma</a></p>
+          </mat-expansion-panel>
+        </li>
+
+        <li>
+          <mat-expansion-panel >
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <p><i class="fa fa-fw fa-connectdevelop"></i> Equipos</p>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p><a (click)="onRegistrarEquipo()"><i class="fa fa-fw fa-pencil-square-o"></i> Registrar equipo</a></p>
+            <p><a (click)="onStockEquipos()"><i class="fa fa-fw fa-bars"></i> Stock de equipos</a></p>
+          </mat-expansion-panel>
+        </li>
+
+        <li>
+          <mat-expansion-panel >
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <p><i class="fa fa-fw fa-user"></i> Clientes </p>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p><a (click)="onRegistrarCliente()"><i class="fa fa-fw fa-connectdevelop"></i> Registrar Cliente</a></p>
+            <p><a (click)="onListaClientes()"><i class="fa fa-fw fa-bars"></i> Lista Clientes</a></p>
+          </mat-expansion-panel>
+        </li>
+
+        <li>
+          <mat-expansion-panel >
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <p><i class="fa fa-fw fa-money"></i> Ventas</p>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p><a (click)="onRegistrarVenta()"><i class="fa fa-fw fa-pencil-square-o"></i> Registrar venta</a></p>
+            <p style="margin-bottom : 50px;"><a (click)="onHistorialVentas()"><i class="fa fa-fw fa-archive"></i> Historial ventas</a></p>
+          </mat-expansion-panel>
+        </li>
+
+      </ul>
+  </mat-drawer>
+  <mat-drawer-content>
+      <!-- Contenido right 85%-->
+      <div *ngIf="selectedTabview == 0" class="right_content" style="background-color:#f7f7f7;">
+        <div class="jumbotron">
+          <h1 class="display-4">BIENVENIDOS GESTIÓN RTR!!</h1>
+          <p class="lead">R.T.R MEDICAL es una empresa especializada en la prestación de servicios asociados como lo son asesorías y mantenimiento correctivo-preventivo.</p>
+          <hr class="my-4">
+          <p class="lead">La aplicación <strong><b>Gestión RTR</b></strong> permite la captura de información y realizar el registro de
+            inventario e información relevante de los diferentes dispositivos biomédicos,
+            tanto en el cliente como de los que se tienen en stock.</p>
+          <p class="lead">
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+          </p>
+        </div>
+
+        <div class="row" >
+          <div class="col-sm-4" >
+                <img src="../../assets/logo2.jpeg" class="img-responsive" style="width:50%" alt="Image">
+          </div>
+
+          <div class="col-sm-8">
+              <h2><i class="fa fa-fw fa-pencil-square-o"></i>Servicios </h2>
+              <ul class="list-group list-group-flush" style="background-color:#f7f7f7;">
+                <li class="list-group-item" style="background-color:#f7f7f7;" ><i class="fa fa-fw fa-asterisk"></i>Mantenimiento preventivo </li>
+                <li class="list-group-item" style="background-color:#f7f7f7;"><i class="fa fa-fw fa-asterisk"></i>Mantenimiento correctivo </li>
+                <li class="list-group-item" style="background-color:#f7f7f7;"><i class="fa fa-fw fa-asterisk"></i>Solicitudes de servicios </li>
+                <li class="list-group-item" style="background-color:#f7f7f7;"><i class="fa fa-fw fa-asterisk"></i>Capacitaciones</li>
+                <li class="list-group-item" style="background-color:#f7f7f7;"><i class="fa fa-fw fa-asterisk"></i>Asesorías </li>
+              </ul>
+          </div>
+
+
+  </div>
+
+      </div>
+      <div *ngIf="selectedTabview == 1" class="right_content" style="background-color:#ddd;">
+        <app-crear-servicio (goHomeEvent)="changeTabviewEvent($event)"></app-crear-servicio>
+      </div>
+      <div *ngIf="selectedTabview == 2" class="right_content" style="background-color:#ddd;">
+        <app-cronograma></app-cronograma>
+      </div>
+      <div *ngIf="selectedTabview == 3" class="right_content" style="background-color:#ddd;">
+        <app-registrar-equipo (goHomeEvent)="changeTabviewEvent($event)"></app-registrar-equipo>
+      </div>
+      <div *ngIf="selectedTabview == 4" class="right_content" style="background-color:#ddd;">
+        <app-stock-equipos></app-stock-equipos>
+      </div>
+      <div *ngIf="selectedTabview == 5" class="right_content" style="background-color:#ddd;">
+        <app-registrar-cliente (goHomeEvent)="changeTabviewEvent($event)"></app-registrar-cliente>
+      </div>
+      <div *ngIf="selectedTabview == 15" class="right_content" style="background-color:#ddd;">
+        <app-lista-clientes ></app-lista-clientes>
+      </div>
+      <div *ngIf="selectedTabview == 6" class="right_content" style="background-color:#ddd;">
+        <app-registrar-venta (goHomeEvent)="changeTabviewEvent($event)" ></app-registrar-venta>
+      </div>
+      <div *ngIf="selectedTabview == 7" class="right_content" style="background-color:#ddd;">
+        <app-historial-ventas></app-historial-ventas>
+      </div>
+  </mat-drawer-content>
+
+</mat-drawer-container>
+
+
+<!-- <p><a routerLink="/crear-servicio" href="#crearServicio"><i class="fa fa-fw fa-pencil-square-o"></i> Crear servicio</a></p>
+<p><a routerLink="/cronograma" href="#cronograma"><i class="fa fa-fw fa-calendar"></i> Cronograma</a></p>
+<p><a routerLink="/historial-servicios" href="#historialServicio"><i class="fa fa-archive"></i> Historial servicios</a></p>
+
+          <p><a routerLink="/registrar-equipo" href="#registrarEquipo"><i class="fa fa-fw fa-pencil-square-o"></i> Registrar equipo</a></p>
+          <p><a routerLink="/stock-equipo" href="#stockEquipo"><i class="fa fa-fw fa-bars"></i> Stock de equipos</a></p>
+
+-->

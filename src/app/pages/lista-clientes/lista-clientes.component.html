@@ -1,0 +1,47 @@
+<table mat-table [dataSource]="clientes" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="posicion">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let cliente of clientes"> {{clientes.indexOf(cliente) + 1}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="nit">
+    <th mat-header-cell *matHeaderCellDef> Nit  </th>
+    <td mat-cell *matCellDef="let cliente of clientes"> {{cliente.nit}} </td>
+  </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="empresa">
+      <th mat-header-cell *matHeaderCellDef> Empresa  </th>
+      <td mat-cell *matCellDef="let cliente of clientes"> {{cliente.empresa}} </td>
+    </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="ciudad">
+    <th mat-header-cell *matHeaderCellDef> Ciudad </th>
+    <td mat-cell *matCellDef="let cliente of clientes"> {{cliente.ciudad}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="representante">
+    <th mat-header-cell *matHeaderCellDef> Representante  </th>
+    <td mat-cell *matCellDef="let cliente of clientes"> {{cliente.nombreRepresentante}}</td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="telefono">
+    <th mat-header-cell *matHeaderCellDef> Telefono </th>
+    <td mat-cell *matCellDef="let cliente of clientes"> {{cliente.telefono1 + "\t\t|\t\t"}} <a href="/">Ver detalles</a></td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+

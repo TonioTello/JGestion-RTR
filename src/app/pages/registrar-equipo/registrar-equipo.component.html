@@ -1,0 +1,100 @@
+<h2 style="text-align: center;">Registro de Equipos Nuevos</h2>
+<form #equipoForm="ngForm" class="row g-3">
+<br>
+  <h4>Información del Equipo</h4>
+  <div class="col-12">  <!--imprime una nueva linea¡? -->
+  </div>
+
+  <div class="col-md-6">
+    <label for="nombreEquipo" class="form-label">Nombre del equipo</label>
+    <input type="email" #nombre="ngModel" name="nombre" [(ngModel)]="equipo.nombre" class="form-control" id="nombreEquipo" placeholder="Nombre del equipo">
+  </div>
+
+  <div class="col-md-6">
+    <label for="numSerie" class="form-label">Número de serie</label>
+    <input type="email" #serie="ngModel" name="serie" [(ngModel)]="equipo.serial" class="form-control" id="numSerie" placeholder="Número de serie">
+  </div>
+
+  <div class="col-md-6">
+    <label for="marca" class="form-label">Marca</label>
+    <input type="email" #marca="ngModel" name="marca" [(ngModel)]="equipo.marca" class="form-control" id="marca" placeholder="Marca">
+  </div>
+
+  <div class="col-md-6">
+    <label for="modelo" class="form-label">Modelo</label>
+    <input type="email" #modelo="ngModel" name="modelo" [(ngModel)]="equipo.modelo" class="form-control" id="modelo" placeholder="Modelo">
+  </div>
+
+  <div class="col-md-6">
+    <br>
+    <label for="invima" class="form-label">Registro Invima</label>
+    <input type="email" #invima="ngModel" name="invima" [(ngModel)]="equipo.registro_invima" class="form-control" id="invima" placeholder="Registro Invima">
+  </div>
+
+  <div class="col-md-6">
+    <label for="vencimientoInvima" class="form-label">Fecha vencimiento R_Invima</label>
+    <br>
+    <mat-form-field appearance="fill">
+    <!-- #docregion toggle -->
+      <input #vencInvima="ngModel" name="vencInvima" [(ngModel)]="equipo.vencimiento_invima" id="vencimientoInvima" matInput [matDatepicker]="picker1" placeholder="Fecha vencimiento">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    <!-- #enddocregion toggle -->
+    </mat-form-field>
+  </div>
+
+  <div class="col-md-6">
+    <label for="proveedor" class="form-label">Proveedor</label>
+    <input type="email" #proveedor="ngModel" name="proveedor" [(ngModel)]="equipo.proveedor" class="form-control" id="proveedor" placeholder="Proveedor">
+  </div>
+
+  <div class="col-md-6">
+    <label for="paisFabricacion" class="form-label">País fabricación</label>
+    <input type="email" #paisFabricacion="ngModel" name="paisFabricacion" [(ngModel)]="equipo.pais_fabricacion" class="form-control" id="paisFabricacion" placeholder="País fabricación">
+  </div>
+
+  <div class="col-md-6">
+    <label for="garantia" class="form-label">Garantía</label>
+    <input type="email" #garantia="ngModel" name="garantia" [(ngModel)]="equipo.garantia" class="form-control" id="garantia" placeholder="Garantía">
+  </div>
+  <div class="col-md-6">
+    <label for="quienRecibe" class="form-label">Quien recibe</label>
+    <input type="email" #quienRecibe="ngModel" name="quienRecibe" [(ngModel)]="equipo.quien_recibe" class="form-control" id="quienRecibe" placeholder="Quien recibe">
+  </div>
+
+  <div class="col-md-6">
+    <label for="nombreContacto" class="form-label">Nombre Contacto</label>
+    <input type="email" #nombreContacto="ngModel" name="nombreContacto" [(ngModel)]="equipo.nombre_contacto" class="form-control" id="nombreContacto" placeholder="Nombre Contacto">
+  </div>
+  <div class="col-md-6">
+    <label for="emailContacto" class="form-label">Email</label>
+    <input type="email" #emailContacto="ngModel" name="emailContacto" [(ngModel)]="equipo.email_contacto" class="form-control" id="emailContacto" placeholder="Email Contacto">
+  </div>
+
+  <div class="col-md-6">
+    <label for="cantidadEquipos" class="form-label">Cantidad de Equipos</label>
+    <input type="number" #cantidadEquipos="ngModel" name="cantidadEquipos" [(ngModel)]="equipo.cantidad_quipos" class="form-control" id="cantidadEquipos" placeholder="Cantidad de Equipos">
+  </div>
+
+  <div class="col-md-6">
+    <label for="fechaCompra" class="form-label">Fecha compra</label>
+    <br>
+    <mat-form-field appearance="fill">
+    <!-- #docregion toggle -->
+      <input #fechaCompra="ngModel" name="fechaCompra" [(ngModel)]="equipo.fecha_compra" id="fechaCompra" matInput [matDatepicker]="picker2" placeholder="Fecha compra">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    <!-- #enddocregion toggle -->
+    </mat-form-field>
+  </div>
+
+  <div class="col-md-12">
+    <label for="observaciones" class="form-label">Observaciones</label>
+    <input type="email" #observaciones="ngModel" name="observaciones" [(ngModel)]="equipo.observacion" class="form-control" id="observaciones" placeholder="Observaciones">
+  </div>
+  <br>
+  <div class="col-12">
+    <button type="submit" (click)=onGuardar() class="btn btn-primary">Guardar</button>
+    <button style="float: right;" type="submit" (click)=onCancelar() class="btn btn-primary">Cancelar</button>
+  </div>
+</form>

@@ -1,0 +1,77 @@
+<div mat-dialog-content class="mat-typography">
+    <h2 style="text-align: center;">Registar Datalles del Servicio</h2>
+    <form class="row g-3">
+    <br>
+      <div class="col-12">  <!--imprime una nueva linea¡? -->
+      </div>
+
+      <div class="col-md-6">
+        <label  for="nitCliente" class="form-label">Número Orden</label>
+        <input type="email"  class="form-control" id="nitCliente" placeholder="Número Orden">
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Estado físico </label>
+        <input type="email"  class="form-control" id="empresaCliente" placeholder="Estado físico">
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Responsable del servicio </label>
+        <input type="email" class="form-control" id="direcciónCliente" placeholder="Responsable del servicio ">
+        <br>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Estado funcional </label>
+        <input type="email"  class="form-control" id="ciudadCliente" placeholder="Estado funcional ">
+      </div>
+
+
+      <div class="col-md-6">
+        <label class="form-label">Observaciones</label>
+        <input type="email"  class="form-control" id="obserCLiente" placeholder="Observaciones">
+      </div>
+
+      <div class="col-md-6">
+          <h3>¿Estado del servicio?</h3>
+          <label>
+            <input class="add-bottom-padding" name="group1" type="radio" checked />
+            <span>Sin Iniciar</span>
+          </label>
+          <label>
+            <input class="add-bottom-padding" name="group1" type="radio" />
+            <span style="margin-left: 40px;">En proceso</span>
+          </label>
+          <label>
+            <input name="group1" type="radio"  />
+            <span style="margin-left: 40px;">Terminado</span>
+          </label>
+      </div>
+
+      <br>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button style="float: right;" type="submit" class="btn btn-primary">Cancelar</button>
+      </div>
+    </form>
+  </div>
+
+<div mat-dialog-actions >
+  <button mat-button mat-dialog-close>Cancel</button>
+
+</div>
+
+
+<!-- <h1 mat-dialog-title>Hi {{data.name}}</h1>
+<div mat-dialog-content>
+  <p>What's your favorite animal?</p>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+</div> -->
+
+
+<!-- Copyright 2020 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

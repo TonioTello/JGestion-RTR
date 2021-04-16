@@ -1,0 +1,75 @@
+<h2 style="text-align: center;">Registro de Clientes</h2>
+<form #clienteForm="ngForm" class="row g-3">
+<br>
+  <h4>Información Entidad</h4>
+  <div class="col-12">  <!--imprime una nueva linea¡? -->
+  </div>
+
+  <div class="col-md-6">
+    <label  for="nitCliente" class="form-label">Nit</label>
+    <input type="email" #nit="ngModel" name="nit" [(ngModel)]="cliente.nit" class="form-control" id="nitCliente" placeholder="Nit">
+  </div>
+
+  <div class="col-md-6">
+    <label class="form-label">Empresa</label>
+    <input type="email" #empresa="ngModel" name="empresa" [(ngModel)]="cliente.empresa" class="form-control" id="empresaCliente" placeholder="Empresa">
+  </div>
+
+  <div class="col-md-6">
+    <label class="form-label">Ciudad</label>
+    <input type="email" #ciudad="ngModel" name="ciudad" [(ngModel)]="cliente.ciudad" class="form-control" id="ciudadCliente" placeholder="Ciudad">
+  </div>
+
+  <div class="col-md-6">
+    <label class="form-label">Dirección</label>
+    <input type="email" #direccion="ngModel" name="direccion" [(ngModel)]="cliente.direccion" class="form-control" id="direcciónCliente" placeholder="Dirección">
+    <br>
+  </div>
+
+  <h4>Información contacto</h4>
+
+  <div class="col-md-12">  <!-- No queria funcionar <Br> -->
+  </div>
+
+  <div class="col-sm-4">
+    <br>
+    <label class="form-label">Representante encargado</label>
+    <input type="email" #representante="ngModel" name="representante" [(ngModel)]="cliente.nombreRepresentante" class="form-control" id="representanteCliente" placeholder="Nombre del representante">
+  </div>
+
+  <div class="col-sm 4">
+    <br>
+    <label class="form-label">Teléfono representante</label>
+    <input type="email" #telefono1="ngModel" name="telefono1" [(ngModel)]="cliente.telefono1" class="form-control" id="teléfonoRepresentante" placeholder="Teléfono">
+  </div>
+  <div class="col-sm-4">
+    <br>
+    <label class="form-label">Email representante</label>
+    <input type="email" #email1="ngModel" name="email1" [(ngModel)]="cliente.email1" class="form-control" id="email1Cliente" placeholder="Email">
+  </div>
+
+  <div class="col-md-4">
+    <label class="form-label">Contacto técnico </label>
+    <input type="email" #contacto="ngModel" name="contacto" [(ngModel)]="cliente.nombreContacto" class="form-control" id="nombreContacto" placeholder="Nombre contacto">
+  </div>
+
+  <div class="col-md-4">
+    <label class="form-label">Teléfono contacto</label>
+    <input type="email" #telefono2="ngModel" name="telefono2" [(ngModel)]="cliente.telefono2" class="form-control" id="teléfonoCliente" placeholder="Teléfono">
+  </div>
+  <div class="col-md-4">
+    <label class="form-label">Email contacto</label>
+    <input type="email" #email2="ngModel" name="email2" [(ngModel)]="cliente.email2" class="form-control" id="emailCliente" placeholder="Email">
+  </div>
+
+  <div class="col-md-12">
+    <label class="form-label">Observaciones</label>
+    <input type="email" #observaciones="ngModel" name="observaciones" [(ngModel)]="cliente.observaciones" class="form-control" id="obserCLiente" placeholder="Observaciones">
+  </div>
+
+  <br>
+  <div class="col-12">
+    <button type="submit" (click)=onGuardar() class="btn btn-primary">Guardar</button>
+    <button style="float: right;" type="submit" (click)=onCancelar() class="btn btn-primary">Cancelar</button>
+  </div>
+</form>

@@ -1,0 +1,122 @@
+<h2 style="text-align: center;">Registro de Venta</h2>
+<form #ventaForm="ngForm" class="row g-3">
+  <br>
+  <h4>Información del Cliente</h4>
+  <div class="col-12">  <!--imprime una nueva linea¡? -->
+  </div>
+  <div class="col-md-4">
+    <label for="nit" class="form-label">Identificación o Nit</label>
+    <input type="email" #nit="ngModel" name="nit" [(ngModel)]="cliente_searched.nit" class="form-control" id="nit" placeholder="Identificación o Nit">
+    <button type="submit" (click)=onConsultarCliente() class="btn btn-primary"><i class="fa fa-search"></i>Consultar</button>
+  </div>
+
+  <div class="col-md-8">
+    <label class="form-label">Entidad: </label> <p>{{cliente_found.empresa}}</p>
+    <label class="form-label">Ciudad: </label> <p>{{cliente_found.ciudad}}</p>
+    <label class="form-label">Dirección: </label> <p>{{cliente_found.direccion}}</p>
+    <label class="form-label">Teléfono representante: </label> <p>{{cliente_found.telefono1}}</p>
+
+    <!-- <input type="email" #ciudad="ngModel" name="ciudad" [(ngModel)]="cliente_found.ciudad" class="form-control" id="ciudadCliente" placeholder="Ciudad" disabled>
+    <label class="form-label">Dirección</label>
+    <input type="email" #direccion="ngModel" name="direccion" [(ngModel)]="cliente_found.direccion" class="form-control" id="direcciónCliente" placeholder="Dirección" disabled>
+    <label class="form-label">Teléfono representante</label>
+    <input type="email" #telefono1="ngModel" name="telefono1" [(ngModel)]="cliente_found.telefono1" class="form-control" id="teléfonoRepresentante" placeholder="Teléfono" disabled> -->
+    <br><br>
+  </div>
+
+  <h4 *ngIf="clienteExiste">Información del Equipo</h4>
+  <div *ngIf="clienteExiste" class="col-12">  <!--imprime una nueva linea¡? -->
+  </div>
+  <div *ngIf="clienteExiste" class="col-md-4">
+    <label for="serial" class="form-label">Número de serie</label>
+    <input type="email" #serial="ngModel" name="serial" [(ngModel)]="equipo_searched.serial" class="form-control" id="serial" placeholder="Identificación del Equipo">
+    <button type="submit" (click)=onConsultarEquipo() class="btn btn-primary"><i class="fa fa-search"></i>Consultar</button>
+  </div>
+  <div *ngIf="clienteExiste" class="col-md-8">
+    <label for="nombreEquipo" class="form-label">Nombre del equipo: </label> <p>{{equipo_found.nombre}}</p>
+    <label for="marca" class="form-label">Marca: </label> <p>{{equipo_found.marca}}</p>
+    <label for="modelo" class="form-label">Modelo: </label> <p>{{equipo_found.modelo}}</p>
+
+<!--     <label for="nombreEquipo" class="form-label">Nombre del equipo</label>
+    <input type="email" #nombre="ngModel" name="nombre" [(ngModel)]="equipo_found.nombre" class="form-control" id="nombreEquipo" placeholder="Nombre del equipo" disabled>
+    <label for="marca" class="form-label">Marca</label>
+    <input type="email" #marca="ngModel" name="marca" [(ngModel)]="equipo_found.marca" class="form-control" id="marca" placeholder="Marca" disabled>
+    <label for="modelo" class="form-label">Modelo</label>
+    <input type="email" #modelo="ngModel" name="modelo" [(ngModel)]="equipo_found.modelo" class="form-control" id="modelo" placeholder="Modelo" disabled> -->
+    <br><br>
+  </div>
+
+<br>
+  <h4 *ngIf="equipoExiste">Información de venta</h4>
+  <div class="col-12">  <!--imprime una nueva linea¡? -->
+  </div>
+
+  <div *ngIf="equipoExiste" class="col-md-4">
+    <label for="numeroFactura" class="form-label">Numero Factura</label>
+    <input type="email" #numeroFactura="ngModel" name="numeroFactura" [(ngModel)]="venta.numeroFactura" class="form-control" id="numeroFactura" placeholder="Numero Factura">
+  </div>
+
+  <div *ngIf="equipoExiste" class="col-md-4">
+    <label for="cantidadEquipos" class="form-label">{{"Cantidad de Equipos "+ "(Disponibles "+ equipo_found.cantidad_quipos + ")" }}</label>
+    <input type="number" #cantidadEquipos="ngModel" name="cantidadEquipos" [(ngModel)]="venta.cantidad" class="form-control" id="cantidadEquipos" placeholder="Cantidad de Equipos">
+  </div>
+
+  <div *ngIf="equipoExiste" class="col-md-4">
+    <label for="vendedor" class="form-label">Vendedor</label>
+    <input type="email" #vendedor="ngModel" name="vendedor" [(ngModel)]="venta.vendedor" class="form-control" id="vendedor" placeholder="Vendedor">
+  </div>
+
+  <br>
+  <div *ngIf="equipoExiste" class="col-md-4">
+    <label for="fechaVenta" class="form-label">Fecha de venta</label>
+    <br>
+    <mat-form-field appearance="fill">
+    <!-- #docregion toggle -->
+      <input #fechaVenta="ngModel" name="fechaVenta" [(ngModel)]="venta.fechaVenta" id="fechaVenta" matInput [matDatepicker]="picker1" placeholder="Fecha de venta">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    <!-- #enddocregion toggle -->
+    </mat-form-field>
+  </div>
+
+  <div *ngIf="equipoExiste" class="col-md-4">
+    <label for="fechaInstalacion" class="form-label">Fecha de Instalación</label>
+    <br>
+    <mat-form-field appearance="fill">
+    <!-- #docregion toggle -->
+      <input #fechaInstalacion="ngModel" name="fechaInstalacion" [(ngModel)]="venta.fechaInstalacion" id="fechaInstalacion"  matInput [matDatepicker]="picker2" placeholder="Fecha de Instalación">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    <!-- #enddocregion toggle -->
+    </mat-form-field>
+  </div>
+
+  <div *ngIf="equipoExiste" class="col-md-4">
+<!--     <label for="inputEmail4" class="form-label">Periodo de mantenimiento</label>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Periodo de mantenimiento</mat-label>
+      <mat-date-range-input [rangePicker]="picker3">
+        <input matStartDate placeholder="Start date">
+        <input matEndDate placeholder="End date">
+      </mat-date-range-input>
+      <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker3></mat-date-range-picker>
+    </mat-form-field> -->
+  </div>
+
+  <div *ngIf="equipoExiste" class="col-md-6">
+    <label for="responsable" class="form-label">Responsable de la Instalación </label>
+    <input type="email" #responsable="ngModel" name="responsable" [(ngModel)]="venta.responsableInstalacion" class="form-control" id="responsable" placeholder="Responsable del servicio ">
+  </div>
+
+  <div *ngIf="equipoExiste" class="col-md-6">
+    <label for="observaciones" class="form-label">Observaciones</label>
+    <input type="email" #observaciones="ngModel" name="observaciones" [(ngModel)]="venta.observaciones" class="form-control" id="observaciones" placeholder="Observaciones">
+  </div>
+  <br>
+  <div *ngIf="equipoExiste" class="col-12">
+    <button type="submit" (click)=onGuardar() class="btn btn-primary">Guardar</button>
+    <button style="float: right;" type="submit" (click)=onCancelar() class="btn btn-primary">Cancelar</button>
+  </div>
+</form>
