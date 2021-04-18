@@ -57,9 +57,21 @@
               </mat-panel-title>
             </mat-expansion-panel-header>
             <p><a (click)="onRegistrarVenta()"><i class="fa fa-fw fa-pencil-square-o"></i> Registrar venta</a></p>
-            <p style="margin-bottom : 50px;"><a (click)="onHistorialVentas()"><i class="fa fa-fw fa-archive"></i> Historial ventas</a></p>
+            <p ><a (click)="onHistorialVentas()"><i class="fa fa-fw fa-archive"></i> Historial ventas</a></p>
           </mat-expansion-panel>
         </li>
+        <li *ngIf="identity.rol=='ROL_ADMIN'">
+          <mat-expansion-panel >
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <p><i class="fa fa-fw fa-yelp"></i>Configuración</p>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p ><a (click)="onRegistrarUsuario()"><i class="fa fa-fw fa-expeditedssl"></i> Registrar usuario</a></p>
+          </mat-expansion-panel>
+        </li>
+
+        <p style="margin-bottom : 50px;"></p> <!-- create a bottom marging in the last element of the menu panel -->
 
       </ul>
   </mat-drawer>
@@ -121,6 +133,9 @@
       </div>
       <div *ngIf="selectedTabview == 7" class="right_content" style="background-color:#ddd;">
         <app-historial-ventas></app-historial-ventas>
+      </div>
+      <div *ngIf="selectedTabview == 8" class="right_content" style="background-color:#ddd;">
+        <app-registrar-usuarios ></app-registrar-usuarios>
       </div>
   </mat-drawer-content>
 

@@ -10,6 +10,7 @@ export class HomeComponent implements OnInit {
 
   @ViewChild(MatAccordion) accordion: any;
   @Input() selectedTabview = 0;
+  @Input() identity : any;
 
   constructor() { }
 
@@ -54,6 +55,10 @@ export class HomeComponent implements OnInit {
 
   onHistorialVentas() {
     this.selectedTabview = 7;
+  }
+
+  onRegistrarUsuario(){
+    this.selectedTabview = 8;
   }
 
 

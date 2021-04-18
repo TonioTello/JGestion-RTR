@@ -20,6 +20,7 @@ import { RegistrarClienteComponent } from './pages/registrar-cliente/registrar-c
 import { CronogramaComponent } from './pages/cronograma/cronograma.component';
 import { ListaClientesComponent } from './pages/lista-clientes/lista-clientes.component';
 import { MaterialModule } from './material.module';
+import { RegistrarUsuariosComponent } from './pages/registrar-usuarios/registrar-usuarios.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { MaterialModule } from './material.module';
     HistorialVentasComponent,
     RegistrarClienteComponent,
     CronogramaComponent,
-    ListaClientesComponent
+    ListaClientesComponent,
+    RegistrarUsuariosComponent
   ],
   imports: [
     BrowserModule,

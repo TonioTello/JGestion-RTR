@@ -10,6 +10,7 @@ import { RegistrarEquipoComponent } from './pages/registrar-equipo/registrar-equ
 import { StockEquiposComponent } from './pages/stock-equipos/stock-equipos.component';
 import { RegistrarVentaComponent } from './pages/registrar-venta/registrar-venta.component';
 import { ListaClientesComponent } from './pages/lista-clientes/lista-clientes.component';
+import { RegistrarUsuariosComponent } from './pages/registrar-usuarios/registrar-usuarios.component';
 
 
 
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'stock-equipo', component: StockEquiposComponent },
   { path: 'registrar-venta', component: RegistrarVentaComponent },
   { path: 'app-lista-clientes', component: ListaClientesComponent },
+  { path: 'registrar-usuarios', component: ListaClientesComponent },
 
   // otherwise redirect to home
   { path: '**', redirectTo: '' }

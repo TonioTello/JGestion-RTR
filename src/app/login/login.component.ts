@@ -5,19 +5,34 @@ import { first } from 'rxjs/operators';
 
 import { AlertService, AuthenticationService } from '../_services/index';
 
+import { UserService } from './../_services';
+import { User } from './../_models/';
+
+
+
+declare let  M: any; //Mostrar mensaje usuando materialize
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers:[UserService]
+
 })
 export class LoginComponent implements OnInit {
   loginForm: any;
   loading = false;
   submitted = false;
   returnUrl: any;
+  identity: any;
+
+  user : User;
+  errorMessage: any;
+  errorMessageReg: any;
 
   constructor(
+      private _userService : UserService,
       private formBuilder: FormBuilder,
       private route: ActivatedRoute,
       private router: Router,
@@ -28,6 +43,8 @@ export class LoginComponent implements OnInit {
 /*       if (this.authenticationService.currentUserValue) {
           this.router.navigate(['/']);
       } */
+
+      this.user = new User();
   }
 
   ngOnInit() {
@@ -38,6 +55,9 @@ export class LoginComponent implements OnInit {
 
       // get return url from route parameters or default to '/'
       this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+
+      this.identity = this._userService.getIdentity();
+      console.log(this.identity);
   }
 
   // convenience getter for easy access to form fields
@@ -65,5 +85,50 @@ export class LoginComponent implements OnInit {
       //             this.alertService.error(error);
       //             this.loading = false;
       //         });
+
   }
+
+  onLogin(){
+    console.log("CLick en Login")
+    //console.log(this.user)
+    this._userService.loginUp(this.user)
+    .subscribe(
+      res=> {
+      M.toast({html: 'Usuario loged...'});
+
+      let identity = res;
+       this.identity = identity;
+
+      if(this.identity._id){
+        localStorage.setItem('identity', JSON.stringify(identity));
+      }
+      else{
+        alert('El usuario no esta identificado correctamente');
+      }
+      this.user = new User(  0,  ' ',  ' ', ' ', ' ', ' ', ' ' );
+      console.log(identity);
+    },
+    error =>{
+      let errorMessage = <any>error;
+
+      if(errorMessage != null){
+        this.errorMessage = error.error.message;
+        console.log(error.error.message);
+      }
+    }
+
+    );
+    //console.log(this.user);
+
+  }
+
+  onLogout(){
+    console.log('Logout...')
+    localStorage.removeItem('identity');
+    localStorage.clear();
+    this.identity = null;
+    this.errorMessage = null;
+    this.errorMessageReg = null;
+  }
+
 }
