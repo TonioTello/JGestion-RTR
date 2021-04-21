@@ -5,6 +5,8 @@ import { VentaService } from './../../_services';
 
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
+let d: Date;
+
 @Component({
   selector: 'app-historial-ventas',
   templateUrl: './historial-ventas.component.html',
@@ -15,6 +17,8 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 export class HistorialVentasComponent implements OnInit {
 
   ventas : Venta[];
+
+
 
   displayedColumns: string[] = ['posicion', 'factura', 'cliente', 'nit', 'equipo', 'serial', 'fechaVenta', 'fechaInstalacion', 'responsableInst'];
 
@@ -30,7 +34,16 @@ export class HistorialVentasComponent implements OnInit {
         res => {
           this.ventas = res as Venta[];
          // M.toast({html: 'Empleado Guardado Exitosamente...'});
-          console.log(res);
+
+        let i = 0;
+          this.ventas.forEach(element => {
+            let fecha1 = element.fechaVenta;
+            let fecha2 = element.fechaInstalacion;
+            this.ventas[i].fechaVenta = fecha1.substr(0, fecha1.indexOf("T") );
+            this.ventas[i].fechaInstalacion = fecha2.substr(0, fecha2.indexOf("T") );
+            i++;
+          });
+
         },
         error=>{
           console.log(error.error.message);
@@ -38,8 +51,6 @@ export class HistorialVentasComponent implements OnInit {
         }
       );
 
-      console.log("Ventas en el backend");
-      console.log(this.ventas);
   }
 
 }

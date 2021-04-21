@@ -106,7 +106,6 @@ export class LoginComponent implements OnInit {
         alert('El usuario no esta identificado correctamente');
       }
       this.user = new User(  0,  ' ',  ' ', ' ', ' ', ' ', ' ' );
-      console.log(identity);
     },
     error =>{
       let errorMessage = <any>error;

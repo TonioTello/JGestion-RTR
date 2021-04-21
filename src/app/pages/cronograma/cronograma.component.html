@@ -1,3 +1,5 @@
+<h2 style="text-align: center;">Cronograma de Servicios</h2>
+
 <table mat-table [dataSource]="servicios" class="mat-elevation-z8">
 
   <!--- Note that these columns can be defined in any order.
@@ -54,15 +56,14 @@
   <!-- Weight Column -->
   <ng-container matColumnDef="reporte">
     <th mat-header-cell *matHeaderCellDef> Reporte </th>
-    <td mat-cell *matCellDef="let servicio of servicios"> {{"Editar"}}</td>
+    <td mat-cell *matCellDef="let servicio of servicios" ><button mat-button (click)="openDialog(servicio)">Editar</button></td>
   </ng-container>
-
 
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
-<button mat-raised-button (click)="openDialog()">Pick one</button>
+
 
 

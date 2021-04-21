@@ -19,6 +19,9 @@ export class ServicioService {
       return this.http.post(this.URL_API+ 'registrar',  servicio);
     }
 
+    updateServicio(servicio: Servicio) {
+      return this.http.put(this.URL_API+ 'actualizar',  servicio);
+    }
 
     getServicios(){
       //et pagen = page;

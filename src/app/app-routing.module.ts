@@ -16,9 +16,9 @@ import { RegistrarUsuariosComponent } from './pages/registrar-usuarios/registrar
 
 
 
+
 const routes: Routes = [
   //{ path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'crear-servicio', component: CrearServicioComponent },
@@ -28,8 +28,8 @@ const routes: Routes = [
   { path: 'app-lista-clientes', component: ListaClientesComponent },
   { path: 'registrar-usuarios', component: ListaClientesComponent },
 
-  // otherwise redirect to home
-  { path: '**', redirectTo: '' }
+  // otherwise redirect to login
+  { path: '**', redirectTo: 'login' }
 ];
 
 @NgModule({

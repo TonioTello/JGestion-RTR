@@ -16,7 +16,7 @@ export class ListaClientesComponent implements OnInit {
   count = [];
   clientes : Cliente[];
 
-  displayedColumns: string[] = ['posicion', 'nit', 'empresa', 'ciudad', 'representante', 'telefono'];
+  displayedColumns: string[] = ['posicion', 'nit', 'empresa', 'ciudad', 'direccion', 'representante', 'telefono'];
 
   constructor(private _clienteService : ClienteService) {
     this.clientes = [];

@@ -97,6 +97,9 @@ export class RegistrarVentaComponent implements OnInit {
     this.venta.nombreEquipo = this.equipo_found.nombre;
     this.venta.numeroSerie = this.equipo_found.serial;
 
+    //this.venta.fechaVenta= this.venta.fechaVenta.substr(0, this.venta.fechaVenta.indexOf("T") );
+    //this.venta.fechaInstalacion= this.venta.fechaInstalacion.substr(0, this.venta.fechaInstalacion.indexOf("T") );
+
     console.log(this.venta)
 
     this._ventaService.register(this.venta)

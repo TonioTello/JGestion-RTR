@@ -83,7 +83,6 @@ export class RegisterComponent implements OnInit {
   onRegistrase(){
 
     console.log("Click en Registrase")
-    console.log(this.user)
 
     this._userService.register(this.user)
     .subscribe(

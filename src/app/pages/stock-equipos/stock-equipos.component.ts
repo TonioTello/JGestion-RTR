@@ -15,7 +15,7 @@ export class StockEquiposComponent implements OnInit {
 
   equipos : Equipo[];
 
-  displayedColumns: string[] = ['posicion', 'nombre', 'serial', 'marca', 'modelo', 'cant_disponible'];
+  displayedColumns: string[] = ['posicion', 'nombre', 'serial', 'marca', 'modelo', 'cant_disponible', 'garantia', 'registro_invima', 'vencimiento_invima'];
 
   constructor(private _equipoService : EquipoService) {
     this.equipos = [];
@@ -30,6 +30,13 @@ export class StockEquiposComponent implements OnInit {
         res => {
           this.equipos = res as Equipo[];
          // M.toast({html: 'Empleado Guardado Exitosamente...'});
+         let i = 0;
+         this.equipos.forEach(element => {
+           let fecha1 = element.vencimiento_invima;
+           this.equipos[i].vencimiento_invima = fecha1.substr(0, fecha1.indexOf("T") );
+           i++;
+         });
+
           console.log(res);
         },
         error=>{
