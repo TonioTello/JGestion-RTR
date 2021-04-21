@@ -6,7 +6,7 @@ import { Equipo } from '../_models';
 @Injectable({ providedIn: 'root' })
 export class EquipoService {
 
-  readonly URL_API = 'http://localhost:3001/api/equipo/';
+  readonly URL_API = 'https://jgestion-backend.herokuapp.com/api/equipo/';
 
     constructor(private http: HttpClient) { }
 

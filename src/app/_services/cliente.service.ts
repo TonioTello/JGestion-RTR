@@ -6,7 +6,7 @@ import { Cliente } from '../_models';
 @Injectable({ providedIn: 'root' })
 export class ClienteService {
 
-  readonly URL_API = 'http://localhost:3001/api/cliente/';
+  readonly URL_API = 'https://jgestion-backend.herokuapp.com/api/cliente/';
 
     constructor(private http: HttpClient) { }
 

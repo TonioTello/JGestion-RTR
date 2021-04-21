@@ -6,7 +6,7 @@ import { Venta } from '../_models';
 @Injectable({ providedIn: 'root' })
 export class VentaService {
 
-  readonly URL_API = 'http://localhost:3001/api/venta/';
+  readonly URL_API = 'https://jgestion-backend.herokuapp.com/api/venta/';
 
     constructor(private http: HttpClient) { }
 

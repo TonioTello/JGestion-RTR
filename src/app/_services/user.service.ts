@@ -6,7 +6,7 @@ import { User } from '../_models';
 @Injectable({ providedIn: 'root' })
 export class UserService {
 
-  readonly URL_API = 'http://localhost:3001/api/usuario/';
+  readonly URL_API = 'https://jgestion-backend.herokuapp.com/api/usuario/';
 
   identity: any;
 
